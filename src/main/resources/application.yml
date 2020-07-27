@@ -1,0 +1,33 @@
+zuul:
+  host:
+    connect-timeout-millis: 800000
+    socket-timeout-millis: 800000
+  #  max-total-connections: 2000
+  #  max-per-route-connections: 200
+  #  time-unit: MILLISECONDS
+  #  time-to-live: -1
+
+spring:
+     servlet:
+       multipart:
+         max-file-size: 300MB
+         max-request-size: 300MB
+         
+
+ribbon:
+  readTimeout: 800000
+  connectTimeout: 800000
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 1000
+      maximumSize: 10000
+      queueSizeRejectionThreshold: -1
+      maxQueueSize: -1
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 800000
